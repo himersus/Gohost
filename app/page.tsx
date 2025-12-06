@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import {
   BrickWallShield,
@@ -10,6 +12,7 @@ import {
 } from "lucide-react";
 import React from "react";
 import ConvertMoneyFormat from "@/components/Generics/ConvertMoney";
+import { motion } from "motion/react";
 
 const navbarLinks = [
   "Producto",
@@ -100,7 +103,12 @@ export default function Home() {
   return (
     <div className="relative">
       <header className="w-full">
-        <nav className="border-b bg-background z-50 grid fixed top-0 left-0 right-0 grid-cols-[20%_60%_20%] items-center justify-between  border-zinc-900 ">
+        <motion.nav
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="border-b bg-background z-50 grid fixed top-0 left-0 right-0 grid-cols-[20%_60%_20%] items-center justify-between  border-zinc-900 "
+        >
           <div className="px-10">
             <Link
               href={"/"}
@@ -126,12 +134,13 @@ export default function Home() {
           </div>
           <div className="flex items-center justify-center gap-20">
             {navbarLinks.map((link, index) => (
-              <button
+              <Link
+                href={"#"}
                 className="text-white transition-all hover:text-white/60"
                 key={index}
               >
                 {link}
-              </button>
+              </Link>
             ))}
           </div>
           <div className="flex items-center justify-end gap-10">
@@ -142,20 +151,38 @@ export default function Home() {
               Registre-se
             </button>
           </div>
-        </nav>
+        </motion.nav>
 
         <section className="hero  mt-52 gap-20 grid items-end grid-cols-2 max-w-[85%] mx-auto">
           <div className="">
-            <h1 className="text-white text-7xl">
+            <motion.h1
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: false }}
+              className="text-white text-7xl"
+            >
               A plataforma que facilita a vida de quem constrói API&apos;s
-            </h1>
-            <div className="pt-7">
+            </motion.h1>
+            <motion.div
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: false }}
+              className="pt-7"
+            >
               <p className="text-white/70 text-3xl">
                 Crie, gerencie e escale suas API&apos;s com facilidade usando
                 nossa plataforma intuitiva e poderosa.
               </p>
-            </div>
-            <div className="flex mt-10 items-center gap-4">
+            </motion.div>
+            <motion.div
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+              viewport={{ once: false }}
+              className="flex mt-10 items-center gap-4"
+            >
               <button className="px-7 py-5 bg-white transition-all hover:bg-white/60 text-black text-xl">
                 Faça deploy agora
                 <MoveRight className="inline-block ml-4 size-5" />
@@ -163,10 +190,16 @@ export default function Home() {
               <button className="px-7 py-5 bg-transparent border border-zinc-900 transition-all hover:bg-white/10 text-white text-xl">
                 Documentação
               </button>
-            </div>
+            </motion.div>
           </div>
           <div className="flex items-end gap-2 justify-end">
-            <div className="w-64 rounded-2xl h-52 border border-zinc-900/60 flex flex-col justify-between bg-zinc-950/70">
+            <motion.div
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: false }}
+              className="w-64 rounded-2xl h-52 border border-zinc-900/60 flex flex-col justify-between bg-zinc-950/70"
+            >
               <header className="flex ps-5 py-5 gap-2 items-center justify-between text-white">
                 <span className="text-base">Websocket</span>
                 <hr className="w-full border-zinc-900" />
@@ -176,8 +209,14 @@ export default function Home() {
                   Suporte completo a Websockets para suas API&apos;s.
                 </p>
               </footer>
-            </div>
-            <div className="w-64 rounded-2xl h-72 border border-zinc-900/60 flex flex-col justify-between bg-zinc-950/70">
+            </motion.div>
+            <motion.div
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+              viewport={{ once: false }}
+              className="w-64 rounded-2xl h-72 border border-zinc-900/60 flex flex-col justify-between bg-zinc-950/70"
+            >
               <header className="flex ps-5 py-5 gap-2 items-center justify-between text-white">
                 <span className="text-base whitespace-nowrap">
                   Sem Hibernação
@@ -189,8 +228,14 @@ export default function Home() {
                   Mantenha suas API&apos;s ativas 24/7 sem hibernação.
                 </p>
               </footer>
-            </div>
-            <div className="w-72 rounded-2xl h-96 bg-base flex flex-col justify-between">
+            </motion.div>
+            <motion.div
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.6 }}
+              viewport={{ once: false }}
+              className="w-72 rounded-2xl h-96 bg-base flex flex-col justify-between"
+            >
               <header className="flex ps-5 py-5 gap-2 items-center justify-between text-white">
                 <span className="text-black whitespace-nowrap">
                   Conteinerização
@@ -202,7 +247,7 @@ export default function Home() {
                   Construa sua API em qualquer linguagem com conteinerização
                 </p>
               </footer>
-            </div>
+            </motion.div>
           </div>
         </section>
       </header>
@@ -211,23 +256,56 @@ export default function Home() {
         <section className="max-w-[85%] mt-52  mx-auto">
           {/* PRODUCT */}
           <div className="flex gap-5 text-lg items-center justify-between">
-            <span className="text-base uppercase ">Producto</span>
-            <hr className="w-full border-zinc-900" />
+            <motion.span
+              initial={{ x: -50, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: false }}
+              className="text-base uppercase "
+            >
+              Producto
+            </motion.span>
+            <motion.hr
+              initial={{ inlineSize: 0, opacity: 0 }}
+              whileInView={{ inlineSize: "100%", opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: false }}
+              className="w-full border-zinc-900"
+            />
           </div>
           <div className="flex items-start pt-14 justify-between">
             <header className="max-w-4xl ">
-              <h2 className="text-white text-6xl">
+              <motion.h2
+                initial={{ x: -100, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                viewport={{ once: false }}
+                className="text-white text-6xl"
+              >
                 Entregando <span className="text-base">valor</span> para
                 desenvolvedores e <span className="text-base">empresas.</span>
-              </h2>
+              </motion.h2>
             </header>
-            <button className="px-7 py-5 bg-white transition-all hover:bg-white/60 text-black text-xl">
-              Experimente Gohost
-              <MoveRight className="inline-block ml-4 size-5" />
-            </button>
+            <motion.div
+              initial={{ x: 100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: false }}
+            >
+              <button className="px-7 py-5 bg-white transition-all hover:bg-white/60 text-black text-xl">
+                Experimente Gohost
+                <MoveRight className="inline-block ml-4 size-5" />
+              </button>
+            </motion.div>
           </div>
           <section className="mt-20 grid grid-cols-1 ">
-            <div className="h-80 p-2 grid grid-cols-4 gap-10  border bg-zinc-950/50  border-zinc-900/60">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: false }}
+              className="h-80 p-2 grid grid-cols-4 gap-10  border bg-zinc-950/50  border-zinc-900/60"
+            >
               <ProductCard
                 icon={<Cuboid className="size-5 text-white" />}
                 title="Deploy Instantâneo"
@@ -249,34 +327,59 @@ export default function Home() {
                 title="Ferramentas Para Devs"
                 description="Tráfego alto? Sem problemas. Nossa plataforma escala automaticamente para acompanhar a demanda."
               />
-            </div>
+            </motion.div>
           </section>
         </section>
 
         <section className="mt-48 ">
           {/* RECURSOS */}
           <div className="w-full h-[50vh] flex items-center justify-center ">
-            <div className=" grid grid-cols-2  max-w-[85%] mx-auto ">
+            <div className="grid grid-cols-2  max-w-[85%] mx-auto ">
               <div className="max-w-4xl">
-                <h4 className="text-6xl text-white">
+                <motion.h4
+                  initial={{ x: -100, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  viewport={{ once: false }}
+                  className="text-6xl text-white"
+                >
                   Recursos poderosos, interface intuitiva e{" "}
                   <span className="text-[#008fe2]">suporte dedicado!</span>
-                </h4>
-                <p className="text-2xl text-white/70 pt-7">
+                </motion.h4>
+                <motion.p
+                  initial={{ x: -100, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                  viewport={{ once: false }}
+                  className="text-2xl text-white/70 pt-7"
+                >
                   Tudo o que você precisa para construir, gerenciar e escalar
                   suas API&apos;s em um só lugar. O Gohost usa 100% de
                   conteinerização para garantir que sua API rode em qualquer
                   linguagem ou framework, com total isolamento e segurança.
-                </p>
-                <button className="px-7 mt-10 py-5 bg-white transition-all hover:bg-white/60 text-black text-xl">
-                  Visite a documentação
-                </button>
+                </motion.p>
+                <motion.div
+                  initial={{ x: -100, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
+                  viewport={{ once: false }}
+                >
+                  <button className="px-7 mt-10 py-5 bg-white transition-all hover:bg-white/60 text-black text-xl">
+                    Visite a documentação
+                  </button>
+                </motion.div>
               </div>
               <div className="grid grid-cols-1 gap-3">
-                <div className="flex items-center justify-center">
+                <motion.div
+                  initial={{ y: 50, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                  viewport={{ once: false }}
+                  className="flex items-center justify-center"
+                >
                   <span className="relative flex items-center justify-center">
                     <svg
-                      className="z-10 size-80 bg-none"
+                      className="z-10 size-96 bg-none"
                       viewBox="0 0 24 18"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -287,7 +390,7 @@ export default function Home() {
                       />
                     </svg>
                   </span>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -295,16 +398,30 @@ export default function Home() {
 
         <section className="mt-44 border-t border-zinc-900 pt-20 pb-20 ">
           <div className="max-w-[85%] mx-auto">
-            <header className="max-w-xl">
+            <motion.header
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: false }}
+              className="max-w-xl"
+            >
               <h4 className="text-6xl text-white">
                 <span className="text-base">Suba</span> sua API com <br />
                 planos acessíveis
               </h4>
-            </header>
+            </motion.header>
 
             <div className="mt-12 pb-10 divide-x grid grid-cols-4">
               {plans.map((plan, index) => (
-                <div
+                <motion.div
+                  initial={{ y: 50, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  transition={{
+                    duration: 0.5,
+                    ease: "easeOut",
+                    delay: index * 0.2,
+                  }}
+                  viewport={{ once: false }}
                   key={index}
                   className="flex flex-col justify-between p-8 border-y border-zinc-900"
                 >
@@ -339,7 +456,7 @@ export default function Home() {
                       Efectuar pagamento
                     </button>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -347,7 +464,12 @@ export default function Home() {
 
         <section className="max-w-[85%] mb-10  mx-auto mt-20 rounded-2xl bg-base">
           <div className="w-full relative overflow-hidden grid grid-cols-2 py-12 px-16 square_back h-full  items-center">
-            <div>
+            <motion.div
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: false }}
+            >
               <h6 className="font-semibold text-white text-5xl">
                 Junte-se a milhares de desenvolvedores que já estão aproveitando
                 o poder do Gohost.
@@ -355,8 +477,14 @@ export default function Home() {
               <button className="px-7 mt-10 py-5 bg-white transition-all hover:bg-white/60  text-black text-xl">
                 Comece agora
               </button>
-            </div>
-            <span className="absolute -bottom-16 -right-10">
+            </motion.div>
+            <motion.span
+              initial={{ x: 100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: false }}
+              className="absolute -bottom-16 -right-10"
+            >
               <svg
                 className="size-116 text-white"
                 viewBox="0 0 212 179"
@@ -372,7 +500,7 @@ export default function Home() {
                   fill="currentColor"
                 />
               </svg>
-            </span>
+            </motion.span>
           </div>
         </section>
       </main>
