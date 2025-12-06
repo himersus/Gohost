@@ -1,25 +1,19 @@
 "use client";
 
-import { X } from "lucide-react";
+import { ChevronLeft, X } from "lucide-react";
 import Link from "next/link";
 import { motion } from "motion/react";
 
-export default function AuthPage() {
+export default function RegisterPage() {
   return (
-    <div className="w-full h-screen grid grid-cols-[60%_40%]">
-      <div
-        style={{
-          backgroundImage: "url('/images/walp_login.jpg')",
-        }}
-        className="h-full bg-cover bg-center"
-      ></div>
+    <div className="w-full h-screen grid grid-cols-[50%_50%]">
       <main className="h-full w-full flex items-center justify-center">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: false }}
-          className="max-w-[45%] w-full mx-auto"
+          className="max-w-[65%] w-full mx-auto"
         >
           <header>
             <div className="flex items-center justify-between">
@@ -51,7 +45,7 @@ export default function AuthPage() {
             <p className="text-white/70 text-lg pt-2">
               Inicie sessão na sua conta para continuar
             </p>
-            <div className="grid mt-5 border-t pt-6 border-zinc-900 grid-cols-1 gap-2">
+            <div className="grid mt-5 border-t pt-6 border-zinc-900 grid-cols-2 gap-2">
               <button className="px-7 py-3 flex items-center justify-center gap-3 bg-transparent border border-zinc-900 transition-all hover:bg-white/10 text-white text-lg">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -93,8 +87,8 @@ export default function AuthPage() {
               </button>
             </div>
           </header>
-          <div className="mt-6  flex flex-col gap-3">
-            <div className="flex my-5 items-center justify-center">
+          <div className="mt-6  grid grid-cols-2 gap-3">
+            <div className="flex col-span-2 my-5 items-center justify-center">
               <hr className="w-full border-zinc-900" />
               <span className="px-3 bg-background text-white absolute">Ou</span>
             </div>
@@ -102,6 +96,15 @@ export default function AuthPage() {
               <input
                 type="text"
                 className="w-full py-3 border border-zinc-900 bg-zinc-950 focus:border-base outline-none text-white placeholder:text-zinc-500 text-lg px-5"
+                placeholder="Nome Completo"
+                name=""
+                id=""
+              />
+            </div>
+            <div>
+              <input
+                type="password"
+                className="w-full py-3 border focus:border-base border-zinc-900 bg-zinc-950 outline-none text-white placeholder:text-zinc-500 text-lg px-5"
                 placeholder="E-mail"
                 name=""
                 id=""
@@ -111,35 +114,51 @@ export default function AuthPage() {
               <input
                 type="password"
                 className="w-full py-3 border focus:border-base border-zinc-900 bg-zinc-950 outline-none text-white placeholder:text-zinc-500 text-lg px-5"
-                placeholder="Password"
+                placeholder="Nova Password"
                 name=""
                 id=""
               />
             </div>
-            <div className="mt-4">
-              <button className="px-7 py-3 w-full bg-base border border-zinc-900 transition-all hover:bg-base/80 text-black text-lg">
-                Iniciar Sessão
+            <div>
+              <input
+                type="password"
+                className="w-full py-3 border focus:border-base border-zinc-900 bg-zinc-950 outline-none text-white placeholder:text-zinc-500 text-lg px-5"
+                placeholder="Confirmar Password"
+                name=""
+                id=""
+              />
+            </div>
+            <div>
+              <button className="px-7 py-3 w-full bg-white border border-zinc-900 transition-all hover:bg-white/80 text-black text-lg">
+                Criar Conta
               </button>
             </div>
             <div>
               <Link
-                href={"/register"}
-                className="px-7 inline-flex justify-center -mt-1 py-3 w-full bg-white border border-zinc-900 transition-all hover:bg-white/80 text-black text-lg"
+                href={"/auth"}
+                className="px-7 inline-flex justify-center py-3 w-full bg-base border border-zinc-900 transition-all hover:bg-base/80 text-black text-lg"
               >
-                Criar Conta
+                Já tenho uma conta
               </Link>
             </div>
             <div className="mt-4">
               <Link
-                href={"#"}
-                className="text-white text-lg transition-all hover:text-white/60"
+                href={"/"}
+                className="text-white items-center flex text-lg transition-all hover:text-white/60"
               >
-                Esqueceu a sua password?
+                <ChevronLeft className="inline mr-2" />
+                Página Inicial
               </Link>
             </div>
           </div>
         </motion.div>
       </main>
+      <div
+        style={{
+          backgroundImage: "url('/images/walp_login.jpg')",
+        }}
+        className="h-full bg-cover bg-center"
+      ></div>
     </div>
   );
 }

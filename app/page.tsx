@@ -144,12 +144,18 @@ export default function Home() {
             ))}
           </div>
           <div className="flex items-center justify-end gap-10">
-            <button className="text-white text-lg transition-all hover:text-white/60">
+            <Link
+              href={"/auth"}
+              className="text-white text-lg transition-all hover:text-white/60"
+            >
               Entrar
-            </button>
-            <button className="py-7 text-lg  bg-base transition-all hover:bg-base/70 text-white text-center border-base px-7 leading-none border-l">
+            </Link>
+            <Link
+              href={"/register"}
+              className="py-7 text-lg  bg-base transition-all hover:bg-base/70 text-white text-center border-base px-7 leading-none border-l"
+            >
               Registre-se
-            </button>
+            </Link>
           </div>
         </motion.nav>
 
