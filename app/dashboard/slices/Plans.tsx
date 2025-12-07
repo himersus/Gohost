@@ -23,7 +23,6 @@ const PlansSlice = () => {
           </button>
         </div>
       </section>
-
       <div className="grid grid-cols-2 pt-12 w-full px-12 gap-8">
         <div className="col-span-full">
           <div className="w-full flex items-center  border border-zinc-900 bg-zinc-950 focus-within:border-base outline-none text-white placeholder:text-zinc-500 text-lg px-4">
@@ -91,7 +90,7 @@ const PlansSlice = () => {
               <span className="text-zinc-600 uppercase">Data de Criação</span>
               <p className="uppercase  text-white">20 Jun. de 2024</p>
             </div>
-            <div className="px-6 py-3.5 border-t col-span-full border-zinc-900  flex gap-1 items-start justify-between">
+            <div className="px-4 py-3.5 border-t col-span-full border-zinc-900  flex gap-1 items-start justify-between">
               <div>
                 <button className="py-2.5 flex items-center gap-2  border border-zinc-900 bg-zinc-950 focus-within:border-base outline-none text-white placeholder:text-zinc-500  px-4">
                   <svg

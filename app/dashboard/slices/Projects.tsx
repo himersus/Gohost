@@ -1,20 +1,33 @@
 import {
+  ArrowLeftRight,
   Copy,
   Ellipsis,
   GitGraph,
+  Logs,
   MoveRight,
   Package,
+  Pause,
   Plus,
   Search,
+  Settings,
 } from "lucide-react";
+import {
+  Popover,
+  PopoverDescription,
+  PopoverPopup,
+  PopoverTitle,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { React } from "next/dist/server/route-modules/app-page/vendored/rsc/entrypoints";
 
 interface ProjectsSliceProps {
   setOpenCreateProject: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpenTeamSheet: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ProjectsSlice: React.FC<ProjectsSliceProps> = ({
   setOpenCreateProject,
+  setOpenTeamSheet,
 }) => {
   return (
     <section>
@@ -26,7 +39,10 @@ const ProjectsSlice: React.FC<ProjectsSliceProps> = ({
             </h1>
           </div>
           <div className="flex items-center gap-3">
-            <button className="flex transition-all items-center text-white  hover:text-white gap-2 px-4 py-2.5 border border-zinc-900 bg-zinc-950">
+            <button
+              onClick={() => setOpenTeamSheet(true)}
+              className="flex transition-all items-center text-white  hover:bg-zinc-900 gap-2 px-4 py-2.5 border border-zinc-900 bg-zinc-950"
+            >
               <Plus className="size-4" />
               Convidar Membros
             </button>
@@ -81,9 +97,46 @@ const ProjectsSlice: React.FC<ProjectsSliceProps> = ({
                 <span className="text-zinc-600">Deploy há 2h</span>
               </div>
               <div>
-                <button className="text-zinc-500 hover:text-white transition-all">
-                  <Ellipsis className="size-5 " />
-                </button>
+                <Popover>
+                  <PopoverTrigger className="text-zinc-500 hover:text-white transition-all">
+                    <Ellipsis className="size-6 " />
+                  </PopoverTrigger>
+                  <PopoverPopup
+                    className={
+                      "bg-background w-[16rem] border border-zinc-800 rounded-none me-10 mt-5"
+                    }
+                  >
+                    <PopoverTitle className={"text-white font-medium!"}>
+                      Menu
+                    </PopoverTitle>
+                    <PopoverDescription
+                      className={"text-zinc-400 text-md mt-1"}
+                    ></PopoverDescription>
+                    <div className="mt-4 border-t flex flex-col gap-2 border-zinc-800 pt-4">
+                      <button className="flex transition-all hover:text-white/50 items-center text-white gap-3 py-2 w-full">
+                        <Logs className="inline-block size-4" />
+                        Métricas & Logs
+                      </button>
+                      <button className="flex transition-all hover:text-white/50 items-center text-white gap-3  py-2 w-full">
+                        <Settings className="inline-block size-4 " />
+                        Definições
+                      </button>
+                      <button
+                        // onClick={() => setOpenTeamSheet(true)}
+                        className="flex transition-all hover:text-white/50 items-center text-white gap-3 py-2 w-full"
+                      >
+                        <ArrowLeftRight className="inline-block size-4" />
+                        Mover
+                      </button>
+                    </div>
+                    <div className="mt-4 border-t flex flex-col gap-3 border-zinc-800 pt-3">
+                      <button className="flex transition-all hover:text-white/50 items-center text-white gap-3 py-2 w-full">
+                        <Pause className="inline-block size-4 " />
+                        Suspender
+                      </button>
+                    </div>
+                  </PopoverPopup>
+                </Popover>
               </div>
             </header>
             <footer>
