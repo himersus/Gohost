@@ -200,7 +200,10 @@ export default function Home() {
               viewport={{ once: false }}
               className="pb-7"
             >
-              <button className="ret:text-lg border text-base hover:bg-base/10 relative border-dashed border-base/30 inline-flex transition-all px-5 py-2 w-auto mx-auto mt-3">
+              <button
+                onClick={() => scrollToElement("plans")}
+                className="ret:text-lg border text-base hover:bg-base/10 relative border-dashed border-base/30 inline-flex transition-all px-5 py-2 w-auto mx-auto mt-3"
+              >
                 <span className="flex items-center justify-between gap-10">
                   <p className="flex items-center justify-center">
                     <CreditCardIcon className="inline-block stroke-1 mr-2 size-5" />
