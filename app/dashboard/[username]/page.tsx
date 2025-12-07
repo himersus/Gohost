@@ -12,14 +12,14 @@ import {
   WalletCards,
 } from "lucide-react";
 import React from "react";
-import CreateProjectSheet from "./components/CreateProjectSheet";
-import Header from "./Partials/Header";
-import PlansSlice from "./slices/Plans";
-import TeamSheet from "./components/TeamSheet";
-import SearchComponent from "./components/SearchComponent";
-import ProjectsSlice from "./slices/Projects";
-import ProjectSettings from "./slices/ProjectSetting";
-import ProfileSettingsSlice from "./slices/Profile";
+import CreateProjectSheet from "../components/CreateProjectSheet";
+import Header from "../Partials/Header";
+import PlansSlice from "../slices/Plans";
+import TeamSheet from "../components/TeamSheet";
+import SearchComponent from "../components/SearchComponent";
+import ProjectsSlice from "../slices/Projects";
+import ProjectSettings from "../slices/ProjectSetting";
+import ProfileSettingsSlice from "../slices/Profile";
 
 const navbarItems = [
   {
@@ -83,6 +83,9 @@ export default function DashboardPage() {
   const [openTeamSheet, setOpenTeamSheet] = React.useState(false);
   const [openNotifications, setOpenNotifications] = React.useState(false);
   const [tabs, setTabs] = React.useState<Tabs>("projects");
+  const [Projecttab, setProjectTab] = React.useState<
+    "logs" | "settings" | "project"
+  >("project");
 
   const slices = [
     {
@@ -91,6 +94,8 @@ export default function DashboardPage() {
         <ProjectsSlice
           setOpenCreateProject={setOpenCreateProject}
           setOpenTeamSheet={setOpenTeamSheet}
+          setProjectTab={setProjectTab}
+          projectTab={Projecttab}
         />
       ),
     },
@@ -122,7 +127,8 @@ export default function DashboardPage() {
             {navbarItems.map((group, index) => (
               <div
                 style={{
-                  marginBlockEnd: index !== navbarItems.length - 1 ? "3.5rem" : 0,
+                  marginBlockEnd:
+                    index !== navbarItems.length - 1 ? "3.5rem" : 0,
                 }}
                 key={index}
               >
@@ -150,6 +156,7 @@ export default function DashboardPage() {
                             setTabs("profile");
                           } else if (item.name === "Projectos") {
                             setTabs("projects");
+                            setProjectTab("project");
                           }
                         }}
                         className="flex items-center transition-all hover:text-white/60 group text-white"

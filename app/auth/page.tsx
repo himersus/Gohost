@@ -3,10 +3,71 @@
 import { X } from "lucide-react";
 import Link from "next/link";
 import { motion } from "motion/react";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import Toast from "@/components/Generics/Toast";
+import React from "react";
+import { Spinner } from "@/components/ui/spinner";
+import { extractData } from "@/components/Generics/DecodeToken";
+import { useRouter } from "next/navigation";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+import ConfirmAccount from "@/components/Generics/ConfirmAccount";
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function AuthPage() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    watch,
+  } = useForm({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    mode: "onChange",
+  });
+  const [hasError, setHasError] = React.useState(false);
+  const [messageError, setMessageError] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+  const [openActiveAccount, setOpenActiveAccount] = React.useState(false);
+  const [showPassword, setShowPassword] = React.useState(false);
+  const router = useRouter();
+
+  const onSubmit = async (data: { email: string; password: string }) => {
+    try {
+      setLoading(true);
+      const response = await axios.post(`${API_URL}/auth/login`, {
+        username: data.email,
+        password: data.password,
+      });
+      const dataToken = extractData({ token: response.data.token });
+      if (dataToken?.is_active) {
+        router.push("/dashboard/" + dataToken.username);
+      } else {
+        setOpenActiveAccount(true);
+      }
+    } catch (error) {
+      setHasError(true);
+      console.log(error);
+      if (axios.isAxiosError(error)) {
+        setMessageError(error.response?.data.message || "Erro desconhecido");
+      } else {
+        setMessageError("Erro desconhecido");
+      }
+      setTimeout(() => {
+        setHasError(false);
+      }, 2000);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="w-full h-screen grid grid-cols-[60%_40%]">
+      {hasError && <Toast message={messageError} type="error" />}
       <div
         style={{
           backgroundImage: "url('/images/walp_login.jpg')",
@@ -93,7 +154,10 @@ export default function AuthPage() {
               </button> */}
             </div>
           </header>
-          <div className="mt-6  flex flex-col gap-3">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="mt-6  flex flex-col gap-3"
+          >
             <div className="flex my-5 items-center justify-center">
               <hr className="w-full border-zinc-900" />
               <span className="px-3 bg-background text-white absolute">Ou</span>
@@ -101,23 +165,52 @@ export default function AuthPage() {
             <div>
               <input
                 type="text"
+                {...register("email", {
+                  required: "O e-mail ou username é obrigatório",
+                })}
                 className="w-full py-3 border border-zinc-900 bg-zinc-950 focus:border-base outline-none text-white placeholder:text-zinc-500 text-lg px-5"
-                placeholder="E-mail"
-                name=""
-                id=""
+                placeholder="E-mail ou Username"
+                name="email"
+                id="email"
               />
+              {errors.email && (
+                <p className="text-red-200 mt-1 py-2">{errors.email.message}</p>
+              )}
             </div>
             <div>
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
+                {...register("password", {
+                  required: "A password é obrigatória",
+                })}
                 className="w-full py-3 border focus:border-base border-zinc-900 bg-zinc-950 outline-none text-white placeholder:text-zinc-500 text-lg px-5"
                 placeholder="Password"
-                name=""
-                id=""
+                name="password"
+                id="password"
               />
+              {errors.password && (
+                <p className="text-red-200 mt-1 py-2">
+                  {errors.password.message}
+                </p>
+              )}
             </div>
-            <div className="mt-4">
-              <button className="px-7 py-3 w-full bg-base border border-zinc-900 transition-all hover:bg-base/80 text-black text-lg">
+            <div className="pt-3">
+              <Label className="text-white text-lg">
+                <Checkbox
+                  checked={showPassword}
+                  onCheckedChange={(checked) => setShowPassword(!!checked)}
+                  className={"bg-zinc-700 border-zinc-600"}
+                />
+                Mostrar Password
+              </Label>
+            </div>
+            <div className="mt-2">
+              <button
+                disabled={loading}
+                type="submit"
+                className="px-7 flex items-center gap-3 justify-center py-3 w-full bg-base border border-zinc-900 transition-all hover:bg-base/80 text-black text-lg"
+              >
+                {loading && <Spinner />}
                 Iniciar Sessão
               </button>
             </div>
@@ -137,9 +230,14 @@ export default function AuthPage() {
                 Esqueceu a sua password?
               </Link>
             </div>
-          </div>
+          </form>
         </motion.div>
       </main>
+      <ConfirmAccount
+        email={watch("email")}
+        open={openActiveAccount}
+        setOpen={setOpenActiveAccount}
+      />
     </div>
   );
 }

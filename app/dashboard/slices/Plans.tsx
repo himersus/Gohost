@@ -55,7 +55,7 @@ const PlansSlice = () => {
             <p className="text-white/60">
               Quando crias uma solicitação de pagamento, tens{" "}
               <span className="text-base">72 horas</span> para pagar pelo
-              projecto pelo <span className="text-green-600">Whatsapp </span>
+              projecto pelo <span className="text-base">Whatsapp </span>
               onde daremos mais detalhes sobre o processo de pagamento. Caso não
               efectues o pagamento dentro deste prazo, a solicitação será
               automaticamente cancelada.

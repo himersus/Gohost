@@ -180,3 +180,11 @@ button {
     opacity: 1;
   }
 }
+
+input:is(:-webkit-autofill, :autofill) {
+  caret-color: #fff;
+  background-color: var(--autofill-bg) !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff;
+  transition: background-color 5000s ease-in-out 0s, color 0.4s ease;
+}

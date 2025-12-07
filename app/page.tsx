@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   BrickWallShield,
   ChevronsUp,
+  CreditCardIcon,
   Cuboid,
   Instagram,
   Linkedin,
@@ -13,13 +14,30 @@ import {
 import React from "react";
 import ConvertMoneyFormat from "@/components/Generics/ConvertMoney";
 import { motion } from "motion/react";
+import scrollToElement from "@/components/Generics/ScrollToElement";
+import { useRouter } from "next/navigation";
 
 const navbarLinks = [
-  "Producto",
-  "Recursos",
-  "Preços",
-  "Documentação",
-  "Comunidade",
+  {
+    title: "Producto",
+    href: "product",
+  },
+  {
+    title: "Recursos",
+    href: "resources",
+  },
+  {
+    title: "Planos",
+    href: "plans",
+  },
+  {
+    title: "Documentação",
+    href: "/documentation",
+  },
+  {
+    title: "Comunidade",
+    href: "/community",
+  },
 ];
 
 export const plans = [
@@ -100,6 +118,8 @@ const ProductCard: React.FC<{
 };
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <div className="relative">
       <header className="w-full">
@@ -134,13 +154,19 @@ export default function Home() {
           </div>
           <div className="flex items-center justify-center gap-20">
             {navbarLinks.map((link, index) => (
-              <Link
-                href={"#"}
-                className="text-white transition-all hover:text-white/60"
+              <button
+                onClick={() => {
+                  if (link.href.startsWith("/")) {
+                    router.push(link.href);
+                  } else {
+                    scrollToElement(link.href);
+                  }
+                }}
+                className="text-white cursor-pointer transition-all hover:text-white/60"
                 key={index}
               >
-                {link}
-              </Link>
+                {link.title}
+              </button>
             ))}
           </div>
           <div className="flex items-center justify-end gap-10">
@@ -161,10 +187,38 @@ export default function Home() {
 
         <section className="hero  mt-52 gap-20 grid items-end grid-cols-2 max-w-[85%] mx-auto">
           <div className="">
-            <motion.h1
+            <motion.div
               initial={{ x: -100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: false }}
+              className="pb-7"
+            >
+              <button className="bg-default-primary/20 text-lg border text-base hover:bg-base/10 relative border-dashed border-base/30 inline-flex transition-all px-5 py-2 w-auto mx-auto mt-3">
+                <span className="flex items-center justify-between gap-10">
+                  <p className="flex items-center justify-center">
+                    <CreditCardIcon className="inline-block stroke-1 mr-2 size-5" />
+                    Experimente com preços incríveis!
+                  </p>
+                </span>
+                <span className="absolute text-base transform scale-x-[-1] -left-0.5 text-[15px] -top-3">
+                  ¬
+                </span>
+                <span className="absolute text-base -right-0.5 text-[15px] -top-3">
+                  ¬
+                </span>
+                <span className="absolute text-base -right-0.5 scale-y-[-1]  text-[15px] -bottom-3">
+                  ¬
+                </span>
+                <span className="absolute text-base rotate-180 -left-0.5 text-[15px] -bottom-3">
+                  ¬
+                </span>
+              </button>
+            </motion.div>
+            <motion.h1
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
               viewport={{ once: false }}
               className="text-white text-7xl"
             >
@@ -259,7 +313,7 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="max-w-[85%] mt-52  mx-auto">
+        <section id="product" className="max-w-[85%] mt-52  mx-auto">
           {/* PRODUCT */}
           <div className="flex gap-5 text-lg items-center justify-between">
             <motion.span
@@ -337,7 +391,7 @@ export default function Home() {
           </section>
         </section>
 
-        <section className="mt-48 ">
+        <section id="resources" className="mt-48 ">
           {/* RECURSOS */}
           <div className="w-full h-[50vh] flex items-center justify-center ">
             <div className="grid grid-cols-2  max-w-[85%] mx-auto ">
@@ -402,7 +456,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="mt-44 border-t border-zinc-900 pt-20 pb-20 ">
+        <section
+          id="plans"
+          className="mt-44 border-t border-zinc-900 pt-20 pb-20 "
+        >
           <div className="max-w-[85%] mx-auto">
             <motion.header
               initial={{ x: -100, opacity: 0 }}
