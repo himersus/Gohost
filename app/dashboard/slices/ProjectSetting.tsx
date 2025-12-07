@@ -28,7 +28,7 @@ const ProjectSettings = () => {
             <h3 className="text-white text-4xl pt-4">unitel-api</h3>
             <div className="bg-zinc-950 max-w-md mt-4 flex items-center justify-between px-4 py-2 border border-zinc-900/60">
               <span className="text-white/60">
-                https://api.gohost.com/honor
+                https://api.Drenoday.com/honor
               </span>
               <button>
                 <Copy className="size-4 text-zinc-600 hover:text-white transition-all" />
@@ -63,7 +63,7 @@ const ProjectSettings = () => {
             <input
               type="text"
               className="w-full py-3 border border-zinc-900 bg-zinc-950 focus:border-base outline-none text-white placeholder:text-zinc-500 text-lg px-5"
-              placeholder="gohost"
+              placeholder="Drenoday"
               name=""
               id=""
             />
@@ -140,7 +140,7 @@ const ProjectSettings = () => {
               Auto Deploy
             </label>
             <span className="text-zinc-500 text-sm">
-              Por padrão, o GoHost implanta automaticamente seu projeto sempre
+              Por padrão, o Drenoday implanta automaticamente seu projeto sempre
               que uma nova alteração é enviada para a branch.
             </span>
           </div>

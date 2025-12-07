@@ -3,6 +3,7 @@
 import {
   CircleQuestionMark,
   CircleUser,
+  CreditCard,
   Group,
   Megaphone,
   Package,
@@ -12,8 +13,8 @@ import {
 import React from "react";
 import CreateProjectSheet from "./components/CreateProjectSheet";
 import Header from "./Partials/Header";
-import ProfileSettingsSlice from "./slices/Profile";
 import PlansSlice from "./slices/Plans";
+import TeamSheet from "./components/TeamSheet";
 
 const navbarItems = [
   {
@@ -35,19 +36,19 @@ const navbarItems = [
     group: "Sistema",
     items: [
       {
-        name: "Perfil",
-        icon: CircleUser,
-        href: "/projects",
-      },
-      {
         name: "Team",
         icon: Group,
-        href: "/envs",
+        href: "#team",
       },
       {
         name: "Planos & Pagamentos",
         icon: WalletCards,
         href: "/envs",
+      },
+      {
+        name: "Minha Conta",
+        icon: CircleUser,
+        href: "/projects",
       },
     ],
   },
@@ -60,16 +61,20 @@ const navbarItems = [
         href: "/projects",
       },
       { name: "Configurações", icon: Settings, href: "/dashboard" },
+      { name: "Guia de Pagamento", icon: CreditCard, href: "/dashboard" },
     ],
   },
 ];
 
 export default function DashboardPage() {
   const [openCreateProject, setOpenCreateProject] = React.useState(false);
+  const [openTeamSheet, setOpenTeamSheet] = React.useState(false);
 
   return (
     <div className="h-screen w-full grid grid-rows-[8%_92%]">
-      <Header setOpenCreateProject={setOpenCreateProject} />
+      <Header setOpenCreateProject={setOpenCreateProject}
+      setOpenTeamSheet={setOpenTeamSheet}
+      />
       <main className="border-b h-full  divide-x divide-zinc-900 w-full grid grid-cols-[18%_82%] border-zinc-900">
         <header className="p-8">
           <div className="pt-6">
@@ -89,6 +94,11 @@ export default function DashboardPage() {
                     return (
                       <button
                         key={idx}
+                        onClick={() => {
+                          if (item.href === "#team") {
+                            setOpenTeamSheet(true);
+                          }
+                        }}
                         className="flex items-center text-white"
                       >
                         {Icon && (
@@ -111,6 +121,7 @@ export default function DashboardPage() {
           open={openCreateProject}
           setOpen={setOpenCreateProject}
         />
+        <TeamSheet open={openTeamSheet} setOpen={setOpenTeamSheet} />
       </main>
     </div>
   );

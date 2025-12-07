@@ -112,7 +112,7 @@ export default function Home() {
           <div className="px-10">
             <Link
               href={"/"}
-              className="flex text-white items-center gap-3 text-3xl "
+              className="flex text-white items-center gap-3 text-2xl "
             >
               <svg
                 className="size-7"
@@ -129,7 +129,7 @@ export default function Home() {
                   fill="#DE6220"
                 />
               </svg>
-              Gohost
+              Drenoday
             </Link>
           </div>
           <div className="flex items-center justify-center gap-20">
@@ -299,7 +299,7 @@ export default function Home() {
               viewport={{ once: false }}
             >
               <button className="px-7 py-5 bg-white transition-all hover:bg-white/60 text-black text-xl">
-                Experimente Gohost
+                Experimente Drenoday
                 <MoveRight className="inline-block ml-4 size-5" />
               </button>
             </motion.div>
@@ -360,7 +360,7 @@ export default function Home() {
                   className="text-2xl text-white/70 pt-7"
                 >
                   Tudo o que você precisa para construir, gerenciar e escalar
-                  suas API&apos;s em um só lugar. O Gohost usa 100% de
+                  suas API&apos;s em um só lugar. O Drenoday usa 100% de
                   conteinerização para garantir que sua API rode em qualquer
                   linguagem ou framework, com total isolamento e segurança.
                 </motion.p>
@@ -478,7 +478,7 @@ export default function Home() {
             >
               <h6 className="font-semibold text-white text-5xl">
                 Junte-se a milhares de desenvolvedores que já estão aproveitando
-                o poder do Gohost.
+                o poder do Drenoday.
               </h6>
               <button className="px-7 mt-10 py-5 bg-white transition-all hover:bg-white/60  text-black text-xl">
                 Comece agora
@@ -533,7 +533,7 @@ export default function Home() {
                   fill="#DE6220"
                 />
               </svg>
-              Gohost
+              Drenoday
             </Link>
             <div>
               <p className="text-white text-lg pt-3">
@@ -548,7 +548,7 @@ export default function Home() {
                 </Link>
               </div>
               <span className="text-zinc-400 pt-5 inline-flex">
-                © 2025 Gohost. Todos os direitos reservados.
+                © 2025 Drenoday. Todos os direitos reservados.
               </span>
             </div>
           </div>

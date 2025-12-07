@@ -92,7 +92,7 @@ const ProjectsSlice: React.FC<ProjectsSliceProps> = ({
               </p>
               <div className="bg-zinc-950 flex items-center justify-between px-4 py-2 mt-2 border border-zinc-900/60">
                 <span className="text-white/60">
-                  https://api.gohost.com/honor
+                  https://api.Drenoday.com/honor
                 </span>
                 <button>
                   <Copy className="size-4 text-zinc-600 hover:text-white transition-all" />

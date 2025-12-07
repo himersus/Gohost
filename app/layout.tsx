@@ -13,14 +13,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Gohost - API Hosting Simplificado",
+  title: "Drenoday - API Hosting Simplificado",
   description:
-    "Hospede suas API's de forma rápida, segura e eficiente com Gohost.",
+    "Hospede suas API's de forma rápida, segura e eficiente com Drenoday.",
   openGraph: {
-    title: "Gohost - Hospedagem de APIs",
+    title: "Drenoday - Hospedagem de APIs",
     description: "Hospede suas API's de forma rápida e segura.",
-    url: "https://gohost.dev",
-    siteName: "Gohost",
+    url: "https://Drenoday.dev",
+    siteName: "Drenoday",
   },
 };
 

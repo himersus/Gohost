@@ -1,6 +1,7 @@
 import {
   ChevronsUpDown,
   Command,
+  Group,
   LogOut,
   Megaphone,
   Package,
@@ -21,9 +22,13 @@ import SearchComponent from "../components/SearchComponent";
 
 interface HeaderProps {
   setOpenCreateProject: React.Dispatch<React.SetStateAction<boolean>>;
+  setOpenTeamSheet: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Header: React.FC<HeaderProps> = ({ setOpenCreateProject }) => {
+const Header: React.FC<HeaderProps> = ({
+  setOpenCreateProject,
+  setOpenTeamSheet,
+}) => {
   const [openNotifications, setOpenNotifications] = React.useState(false);
 
   return (
@@ -106,6 +111,13 @@ const Header: React.FC<HeaderProps> = ({ setOpenCreateProject }) => {
                 <button className="flex transition-all hover:bg-zinc-900/50 items-center text-white gap-3 px-4 py-2 w-full">
                   <WalletCards className="inline-block size-5 text-base" />
                   Plano & Pagamentos
+                </button>
+                <button
+                  onClick={() => setOpenTeamSheet(true)}
+                  className="flex transition-all hover:bg-zinc-900/50 items-center text-white gap-3 px-4 py-2 w-full"
+                >
+                  <Group className="inline-block size-5 text-base" />
+                  Adicionar membro
                 </button>
               </div>
               <div className="mt-4 border-t flex flex-col gap-3 border-zinc-800 pt-4">

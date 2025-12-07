@@ -42,7 +42,7 @@ export default function AuthPage() {
                     fill="#DE6220"
                   />
                 </svg>
-                Gohost
+                Drenoday
               </Link>
               <button className="size-10 rounded-full flex items-center justify-center text-white/40 hover:text-white transition-all">
                 <X className="size-5 " />

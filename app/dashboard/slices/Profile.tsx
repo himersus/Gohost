@@ -33,7 +33,7 @@ const ProfileSettingsSlice = () => {
           <input
             type="text"
             className="w-full py-3 border border-zinc-900 bg-zinc-950 focus:border-base outline-none text-white placeholder:text-zinc-500 text-lg px-5"
-            placeholder="Gohost Company"
+            placeholder="Drenoday Company"
             name=""
             id=""
           />
@@ -47,7 +47,7 @@ const ProfileSettingsSlice = () => {
           <input
             type="text"
             className="w-full py-3 border border-zinc-900 bg-zinc-950 focus:border-base outline-none text-white placeholder:text-zinc-500 text-lg px-5"
-            placeholder="gohost@gmail.com"
+            placeholder="Drenoday@gmail.com"
             name=""
             id=""
           />

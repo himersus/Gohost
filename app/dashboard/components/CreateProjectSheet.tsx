@@ -53,7 +53,7 @@ export default function CreateProjectSheet({
                 <input
                   type="text"
                   className="w-full py-3 border border-zinc-900 bg-zinc-950 focus:border-base outline-none text-white placeholder:text-zinc-500 text-lg px-5"
-                  placeholder="gohost"
+                  placeholder="Drenoday"
                   name=""
                   id=""
                 />
