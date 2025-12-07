@@ -66,13 +66,13 @@ export default function AuthPage() {
   };
 
   return (
-    <div className="w-full h-screen grid grid-cols-[60%_40%]">
+    <div className="w-full pot:h-screen grid pot:grid-cols-2 grid-cols-1 lal:grid-cols-[60%_40%]">
       {hasError && <Toast message={messageError} type="error" />}
       <div
         style={{
           backgroundImage: "url('/images/walp_login.jpg')",
         }}
-        className="h-full bg-cover bg-center"
+        className="pot:h-full h-32 inline-flex bg-cover bg-center"
       ></div>
       <main className="h-full w-full flex items-center justify-center">
         <motion.div
@@ -80,7 +80,7 @@ export default function AuthPage() {
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: false }}
-          className="max-w-[45%] w-full mx-auto"
+          className="pot:max-w-[45%] pot:px-0 px-7 pot:pt- pt-16 w-full mx-auto"
         >
           <header>
             <div className="flex items-center justify-between">
@@ -105,7 +105,10 @@ export default function AuthPage() {
                 </svg>
                 Drenoday
               </Link>
-              <button className="size-10 rounded-full flex items-center justify-center text-white/40 hover:text-white transition-all">
+              <button
+                onClick={() => router.back()}
+                className="size-10 rounded-full flex items-center justify-center text-white/40 hover:text-white transition-all"
+              >
                 <X className="size-5 " />
               </button>
             </div>
@@ -113,7 +116,12 @@ export default function AuthPage() {
               Inicie sessão na sua conta para continuar
             </p>
             <div className="grid mt-5 border-t pt-6 border-zinc-900 grid-cols-1 gap-2">
-              <button className="px-7 py-3 flex items-center justify-center gap-3 bg-transparent border border-zinc-900 transition-all hover:bg-white/10 text-white text-lg">
+              <button
+                onClick={() => {
+                  window.location.href = `${API_URL}/auth/google`;
+                }}
+                className="px-7 py-3 flex items-center justify-center gap-3 bg-transparent border border-zinc-900 transition-all hover:bg-white/10 text-white text-lg"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
@@ -208,7 +216,7 @@ export default function AuthPage() {
               <button
                 disabled={loading}
                 type="submit"
-                className="px-7 flex items-center gap-3 justify-center py-3 w-full bg-base border border-zinc-900 transition-all hover:bg-base/80 text-black text-lg"
+                className="px-7 flex items-center gap-3 justify-center py-2.5 w-full bg-base border border-zinc-900 transition-all hover:bg-base/80 text-black text-lg"
               >
                 {loading && <Spinner />}
                 Iniciar Sessão
@@ -217,7 +225,7 @@ export default function AuthPage() {
             <div>
               <Link
                 href={"/register"}
-                className="px-7 inline-flex justify-center -mt-1 py-3 w-full bg-white border border-zinc-900 transition-all hover:bg-white/80 text-black text-lg"
+                className="px-7 inline-flex justify-center -mt-1 py-2.5 w-full bg-white border border-zinc-900 transition-all hover:bg-white/80 text-black text-lg"
               >
                 Criar Conta
               </Link>

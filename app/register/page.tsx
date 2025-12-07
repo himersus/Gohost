@@ -3,17 +3,20 @@
 import { ChevronLeft, X } from "lucide-react";
 import Link from "next/link";
 import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
 
 export default function RegisterPage() {
+  const router = useRouter();
+
   return (
-    <div className="w-full h-screen grid grid-cols-[50%_50%]">
-      <main className="h-full w-full flex items-center justify-center">
+    <div className="w-full pot:h-screen grid pot:grid-cols-2 grid-cols-1 lal:grid-cols-[50%_50%]">
+      <main className="h-full  pot:order-1 order-2 w-full flex items-center justify-center">
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           viewport={{ once: false }}
-          className="max-w-[60%] w-full mx-auto"
+          className="pot:max-w-[60%] pot:px-0 px-7 pot:pt- pt-16 w-full mx-auto"
         >
           <header>
             <div className="flex items-center justify-between">
@@ -38,7 +41,10 @@ export default function RegisterPage() {
                 </svg>
                 Drenoday
               </Link>
-              <button className="size-10 rounded-full flex items-center justify-center text-white/40 hover:text-white transition-all">
+              <button
+                onClick={() => router.back()}
+                className="size-10 rounded-full flex items-center justify-center text-white/40 hover:text-white transition-all"
+              >
                 <X className="size-5 " />
               </button>
             </div>
@@ -87,8 +93,8 @@ export default function RegisterPage() {
               </button> */}
             </div>
           </header>
-          <div className="mt-6  grid grid-cols-2 gap-3">
-            <div className="flex col-span-2 my-5 items-center justify-center">
+          <div className="mt-6  grid grid-cols-1 ret:grid-cols-2 gap-3">
+            <div className="flex pot:col-span-2 my-5 items-center justify-center">
               <hr className="w-full border-zinc-900" />
               <span className="px-3 bg-background text-white absolute">Ou</span>
             </div>
@@ -157,7 +163,7 @@ export default function RegisterPage() {
         style={{
           backgroundImage: "url('/images/walp_login.jpg')",
         }}
-        className="h-full bg-cover bg-center"
+        className="pot:h-full h-32 pot:order-2 odrer-1 bg-cover bg-center"
       ></div>
     </div>
   );

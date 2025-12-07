@@ -8,6 +8,7 @@ import {
   Cuboid,
   Instagram,
   Linkedin,
+  Menu,
   MoveRight,
   ToolCase,
 } from "lucide-react";
@@ -101,7 +102,7 @@ const ProductCard: React.FC<{
   description: string;
 }> = ({ icon, title, description }) => {
   return (
-    <div className="p-5 h-full flex flex-col items-start justify-between">
+    <div className="p-5 gap-6 h-full flex flex-col items-start justify-between">
       <header>
         <div className="size-9 bg-base flex items-center justify-center">
           {icon}
@@ -127,9 +128,9 @@ export default function Home() {
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="border-b bg-background z-50 grid fixed top-0 left-0 right-0 grid-cols-[20%_60%_20%] items-center justify-between  border-zinc-900 "
+          className="border-b pot:py-0 py-5 bg-background z-50 flex pot:px-0 px-5 pot:grid fixed top-0 left-0 right-0 pot:grid-cols-[20%_60%_20%] items-center justify-between  border-zinc-900 "
         >
-          <div className="px-10">
+          <div className="pot:px-10">
             <Link
               href={"/"}
               className="flex text-white items-center gap-3 text-2xl "
@@ -152,7 +153,7 @@ export default function Home() {
               Drenoday
             </Link>
           </div>
-          <div className="flex items-center justify-center gap-20">
+          <div className="pot:flex hidden items-center justify-center gap-20">
             {navbarLinks.map((link, index) => (
               <button
                 onClick={() => {
@@ -169,7 +170,7 @@ export default function Home() {
               </button>
             ))}
           </div>
-          <div className="flex items-center justify-end gap-10">
+          <div className="pot:flex hidden items-center justify-end gap-10">
             <Link
               href={"/auth"}
               className="text-white text-lg transition-all hover:text-white/60"
@@ -183,9 +184,14 @@ export default function Home() {
               Registre-se
             </Link>
           </div>
+          <div className="pot:hidden flex items-center justify-center">
+            <button>
+              <Menu className="size-6 text-white" />
+            </button>
+          </div>
         </motion.nav>
 
-        <section className="hero  mt-52 gap-20 grid items-end grid-cols-2 max-w-[85%] mx-auto">
+        <section className="hero mt-36 pot:mt-52 gap-20 grid items-end pot:grid-cols-2 px-8 pot:max-w-[85%] mx-auto">
           <div className="">
             <motion.div
               initial={{ x: -100, opacity: 0 }}
@@ -194,7 +200,7 @@ export default function Home() {
               viewport={{ once: false }}
               className="pb-7"
             >
-              <button className="bg-default-primary/20 text-lg border text-base hover:bg-base/10 relative border-dashed border-base/30 inline-flex transition-all px-5 py-2 w-auto mx-auto mt-3">
+              <button className="ret:text-lg border text-base hover:bg-base/10 relative border-dashed border-base/30 inline-flex transition-all px-5 py-2 w-auto mx-auto mt-3">
                 <span className="flex items-center justify-between gap-10">
                   <p className="flex items-center justify-center">
                     <CreditCardIcon className="inline-block stroke-1 mr-2 size-5" />
@@ -220,7 +226,7 @@ export default function Home() {
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
               viewport={{ once: false }}
-              className="text-white text-7xl"
+              className="text-white pot:text-6xl ret:text-5xl text-4xl lal:text-7xl"
             >
               A plataforma que facilita a vida de quem constrói API&apos;s
             </motion.h1>
@@ -231,7 +237,7 @@ export default function Home() {
               viewport={{ once: false }}
               className="pt-7"
             >
-              <p className="text-white/70 text-3xl">
+              <p className="text-white/70 text-xl pot:text-3xl">
                 Crie, gerencie e escale suas API&apos;s com facilidade usando
                 nossa plataforma intuitiva e poderosa.
               </p>
@@ -241,24 +247,24 @@ export default function Home() {
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
               viewport={{ once: false }}
-              className="flex mt-10 items-center gap-4"
+              className="flex mt-10 flex-wrap items-center gap-4"
             >
-              <button className="px-7 py-5 bg-white transition-all hover:bg-white/60 text-black text-xl">
+              <button className="px-7 py-4 ret:py-5 bg-white transition-all hover:bg-white/60 text-black text-xl">
                 Faça deploy agora
                 <MoveRight className="inline-block ml-4 size-5" />
               </button>
-              <button className="px-7 py-5 bg-transparent border border-zinc-900 transition-all hover:bg-white/10 text-white text-xl">
+              <button className="px-7 py-4 ret:py-5 bg-transparent border border-zinc-900 transition-all hover:bg-white/10 text-white text-xl">
                 Documentação
               </button>
             </motion.div>
           </div>
-          <div className="flex items-end gap-2 justify-end">
+          <div className="flex ret:flex-nowrap flex-wrap items-end gap-2 justify-center pot:justify-end">
             <motion.div
               initial={{ y: 100, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
               viewport={{ once: false }}
-              className="w-64 rounded-2xl h-52 border border-zinc-900/60 flex flex-col justify-between bg-zinc-950/70"
+              className="pot:w-64 rounded-2xl h-52 border border-zinc-900/60 flex flex-col justify-between bg-zinc-950/70"
             >
               <header className="flex ps-5 py-5 gap-2 items-center justify-between text-white">
                 <span className="text-base">Websocket</span>
@@ -275,7 +281,7 @@ export default function Home() {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
               viewport={{ once: false }}
-              className="w-64 rounded-2xl h-72 border border-zinc-900/60 flex flex-col justify-between bg-zinc-950/70"
+              className="pot:w-64 rounded-2xl h-72 border border-zinc-900/60 flex flex-col justify-between bg-zinc-950/70"
             >
               <header className="flex ps-5 py-5 gap-2 items-center justify-between text-white">
                 <span className="text-base whitespace-nowrap">
@@ -294,7 +300,7 @@ export default function Home() {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.6 }}
               viewport={{ once: false }}
-              className="w-72 rounded-2xl h-96 bg-base flex flex-col justify-between"
+              className="pot:w-72 rounded-2xl h-96 bg-base flex flex-col justify-between"
             >
               <header className="flex ps-5 py-5 gap-2 items-center justify-between text-white">
                 <span className="text-black whitespace-nowrap">
@@ -315,7 +321,7 @@ export default function Home() {
       <main>
         <section id="product" className="max-w-[85%] mt-52  mx-auto">
           {/* PRODUCT */}
-          <div className="flex gap-5 text-lg items-center justify-between">
+          <div className="flex gap-5 pot:text-lg items-center justify-between">
             <motion.span
               initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -333,14 +339,14 @@ export default function Home() {
               className="w-full border-zinc-900"
             />
           </div>
-          <div className="flex items-start pt-14 justify-between">
-            <header className="max-w-4xl ">
+          <div className="flex items-start flex-wrap gap-5 pt-14 justify-between">
+            <header className="max-w-4xl">
               <motion.h2
                 initial={{ x: -100, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 viewport={{ once: false }}
-                className="text-white text-6xl"
+                className="text-white pot:text-xl text-4xl lal:text-6xl"
               >
                 Entregando <span className="text-base">valor</span> para
                 desenvolvedores e <span className="text-base">empresas.</span>
@@ -352,7 +358,7 @@ export default function Home() {
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
               viewport={{ once: false }}
             >
-              <button className="px-7 py-5 bg-white transition-all hover:bg-white/60 text-black text-xl">
+              <button className="px-7 py-4 ret:py-5 bg-white transition-all hover:bg-white/60 text-black text-xl">
                 Experimente Drenoday
                 <MoveRight className="inline-block ml-4 size-5" />
               </button>
@@ -364,7 +370,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
               viewport={{ once: false }}
-              className="h-80 p-2 grid grid-cols-4 gap-10  border bg-zinc-950/50  border-zinc-900/60"
+              className="pot:h-80 p-2 grid ret:grid-cols-2 grid-cols-1 pot:grid-cols-4 gap-10  border bg-zinc-950/50  border-zinc-900/60"
             >
               <ProductCard
                 icon={<Cuboid className="size-5 text-white" />}
@@ -391,17 +397,17 @@ export default function Home() {
           </section>
         </section>
 
-        <section id="resources" className="mt-48 ">
+        <section id="resources" className="pot:mt-48 mt-72 ">
           {/* RECURSOS */}
           <div className="w-full h-[50vh] flex items-center justify-center ">
-            <div className="grid grid-cols-2  max-w-[85%] mx-auto ">
+            <div className="grid pot:grid-cols-2 gap-5 max-w-[85%] mx-auto ">
               <div className="max-w-4xl">
                 <motion.h4
                   initial={{ x: -100, opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   viewport={{ once: false }}
-                  className="text-6xl text-white"
+                  className="lal:text-6xl pot:text-5xl text-4xl text-white"
                 >
                   Recursos poderosos, interface intuitiva e{" "}
                   <span className="text-[#008fe2]">suporte dedicado!</span>
@@ -411,7 +417,7 @@ export default function Home() {
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
                   viewport={{ once: false }}
-                  className="text-2xl text-white/70 pt-7"
+                  className="pot:text-2xl text-xl text-white/70 pt-7"
                 >
                   Tudo o que você precisa para construir, gerenciar e escalar
                   suas API&apos;s em um só lugar. O Drenoday usa 100% de
@@ -424,7 +430,7 @@ export default function Home() {
                   transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
                   viewport={{ once: false }}
                 >
-                  <button className="px-7 mt-10 py-5 bg-white transition-all hover:bg-white/60 text-black text-xl">
+                  <button className="px-7 mt-10 py-4 ret:py-5 bg-white transition-all hover:bg-white/60 text-black text-xl">
                     Visite a documentação
                   </button>
                 </motion.div>
@@ -437,9 +443,9 @@ export default function Home() {
                   viewport={{ once: false }}
                   className="flex items-center justify-center"
                 >
-                  <span className="relative flex items-center justify-center">
+                  <span className="relative flex items-center pot:mt-0 mt-10 justify-center">
                     <svg
-                      className="z-10 size-96 bg-none"
+                      className="z-10 size-60 pot:size-96 bg-none"
                       viewBox="0 0 24 18"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -468,13 +474,13 @@ export default function Home() {
               viewport={{ once: false }}
               className="max-w-xl"
             >
-              <h4 className="text-6xl text-white">
+              <h4 className="lal:text-6xl pot:text-5xl text-4xl text-white">
                 <span className="text-base">Suba</span> sua API com <br />
                 planos acessíveis
               </h4>
             </motion.header>
 
-            <div className="mt-12 pb-10 divide-x grid grid-cols-4">
+            <div className="mt-12 pb-10 pot:gap-0 gap-16 pot:divide-x grid ret:grid-cols-2 grid-cols-1 pot:grid-cols-4">
               {plans.map((plan, index) => (
                 <motion.div
                   initial={{ y: 50, opacity: 0 }}
@@ -486,7 +492,7 @@ export default function Home() {
                   }}
                   viewport={{ once: false }}
                   key={index}
-                  className="flex flex-col justify-between p-8 border-y border-zinc-900"
+                  className="flex flex-col justify-between p-5 lal:p-8 pot:border-y border-zinc-900"
                 >
                   <header>
                     <div className="pb-4 border-b border-zinc-900">
@@ -495,7 +501,7 @@ export default function Home() {
                         {plan.description}
                       </p>
                     </div>
-                    <h6 className="text-white font-semibold text-5xl pt-6">
+                    <h6 className="text-white font-semibold text-4xl lal:text-5xl pt-6">
                       {ConvertMoneyFormat(plan.price)}
                     </h6>
                     <p className="text-white pt-4 text-lg">
@@ -526,18 +532,18 @@ export default function Home() {
         </section>
 
         <section className="max-w-[85%] mb-10  mx-auto mt-20 rounded-2xl bg-base">
-          <div className="w-full relative overflow-hidden grid grid-cols-2 py-12 px-16 square_back h-full  items-center">
+          <div className="w-full relative overflow-hidden grid pot:grid-cols-2 py-12 px-10 pot:px-16 square_back h-full  items-center">
             <motion.div
               initial={{ x: -100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
               viewport={{ once: false }}
             >
-              <h6 className="font-semibold text-white text-5xl">
+              <h6 className="font-semibold text-white text-3xl lal:text-5xl">
                 Junte-se a milhares de desenvolvedores que já estão aproveitando
                 o poder do Drenoday.
               </h6>
-              <button className="px-7 mt-10 py-5 bg-white transition-all hover:bg-white/60  text-black text-xl">
+              <button className="px-7 mt-10 py-4 ret:py-5 bg-white transition-all hover:bg-white/60  text-black text-xl">
                 Comece agora
               </button>
             </motion.div>
@@ -546,10 +552,10 @@ export default function Home() {
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
               viewport={{ once: false }}
-              className="absolute -bottom-16 -right-10"
+              className="pot:absolute -bottom-16 pot:-right-10"
             >
               <svg
-                className="size-116 text-white"
+                className="size-116 pot:inline-flex hidden text-white"
                 viewBox="0 0 212 179"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -568,7 +574,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="max-w-[85%] grid grid-cols-[40%_60%] items-start border-t border-zinc-900 py-10 mx-auto t-20">
+      <footer className="max-w-[85%] grid grid-cols-1 gap-10 ret:grid-cols-[40%_60%] items-start border-t border-zinc-900 py-10 mx-auto t-20">
         <header>
           <div>
             <Link
@@ -610,7 +616,7 @@ export default function Home() {
             </div>
           </div>
         </header>
-        <div className="flex justify-end gap-32 items-center">
+        <div className="flex flex-wrap pot:mt-0 mt-10 pot:justify-end gap-x-32 gap-y-14 items-center">
           <div>
             <h6 className="text-white text-xl">Features</h6>
             <div className="flex pt-5 flex-col items-start gap-5">
