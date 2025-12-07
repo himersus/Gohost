@@ -22,7 +22,7 @@ const navbarLinks = [
   "Comunidade",
 ];
 
-const plans = [
+export const plans = [
   {
     title: "Plano Básico",
     description: "Ideal para projetos pequenos e testes iniciais.",
