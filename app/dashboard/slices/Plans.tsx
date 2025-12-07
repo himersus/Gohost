@@ -64,7 +64,7 @@ const PlansSlice = () => {
           </header>
         </div>
         <div className="col-span-2 grid grod-cols-1 mt-1 w-full">
-          <div className="border border-zinc-900 divide-x divide-zinc-900 grid grid-cols-[15%_17%_38%_30%]">
+          <div className="border border-zinc-900 divide-x divide-zinc-900 grid grid-cols-[15%_17%_38%_15%_15%]">
             <div className="px-6 py-3.5 border-r border-zinc-900 flex-col flex gap-1 items-start justify-center">
               <span className="text-zinc-600 uppercase">Id</span>
               <p className="uppercase  text-white">#b7678n</p>
@@ -86,6 +86,10 @@ const PlansSlice = () => {
               <p className="uppercase text-base text-lg">
                 {ConvertMoneyFormat(7500)}
               </p>
+            </div>
+            <div className="px-6 py-3.5 border-r border-zinc-900 flex-col flex gap-1 items-start justify-center">
+              <span className="text-zinc-600 uppercase">Data de Criação</span>
+              <p className="uppercase  text-white">20 Jun. de 2024</p>
             </div>
             <div className="px-6 py-3.5 border-t col-span-full border-zinc-900  flex gap-1 items-start justify-between">
               <div>
@@ -115,9 +119,9 @@ const PlansSlice = () => {
                     ></path>
                     <path
                       fill="#fff"
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M19.268,16.045c-0.355-0.79-0.729-0.806-1.068-0.82c-0.277-0.012-0.593-0.011-0.909-0.011c-0.316,0-0.83,0.119-1.265,0.594c-0.435,0.475-1.661,1.622-1.661,3.956c0,2.334,1.7,4.59,1.937,4.906c0.237,0.316,3.282,5.259,8.104,7.161c4.007,1.58,4.823,1.266,5.693,1.187c0.87-0.079,2.807-1.147,3.202-2.255c0.395-1.108,0.395-2.057,0.277-2.255c-0.119-0.198-0.435-0.316-0.909-0.554s-2.807-1.385-3.242-1.543c-0.435-0.158-0.751-0.237-1.068,0.238c-0.316,0.474-1.225,1.543-1.502,1.859c-0.277,0.317-0.554,0.357-1.028,0.119c-0.474-0.238-2.002-0.738-3.815-2.354c-1.41-1.257-2.362-2.81-2.639-3.285c-0.277-0.474-0.03-0.731,0.208-0.968c0.213-0.213,0.474-0.554,0.712-0.831c0.237-0.277,0.316-0.475,0.474-0.791c0.158-0.317,0.079-0.594-0.04-0.831C20.612,19.329,19.69,16.983,19.268,16.045z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     ></path>
                   </svg>
                   Efectuar Pagamento

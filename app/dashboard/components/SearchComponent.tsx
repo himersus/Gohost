@@ -1,4 +1,5 @@
 import { Dialog, DialogPopup } from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Megaphone, Search, X } from "lucide-react";
 import React from "react";
 export default function SearchComponent({
@@ -39,7 +40,7 @@ export default function SearchComponent({
             </div>
           </div>
         </header>
-        <div className="h-full overflow-y-auto border-t border-zinc-800">
+        <ScrollArea className="h-full overflow-y-auto border-t border-zinc-800">
           <header className="flex p-6 flex-col items-start gap-4">
             <div className="text-white flex items-center gap-10">
               <div className="flex items-center gap-2">
@@ -78,7 +79,7 @@ export default function SearchComponent({
               </div>
             ))}
           </div>
-        </div>
+        </ScrollArea>
       </DialogPopup>
     </Dialog>
   );
