@@ -6,7 +6,7 @@ const ProfileSettingsSlice = () => {
     <ScrollArea className="h-full flex overflow-y-auto flex-col items-start">
       <section className="p-16 w-full flex items-center justify-between border-b border-zinc-900">
         <div>
-          <h4 className="text-white text-4xl">
+          <h4 className="text-white text-5xl">
             Perfil <span className="text-lg text-zinc-600"> / @msalembe</span>
           </h4>
           <span className="text-zinc-200 text-lg mt-2 block">

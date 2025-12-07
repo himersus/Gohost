@@ -13,6 +13,7 @@ import React from "react";
 import CreateProjectSheet from "./components/CreateProjectSheet";
 import Header from "./Partials/Header";
 import ProfileSettingsSlice from "./slices/Profile";
+import PlansSlice from "./slices/Plans";
 
 const navbarItems = [
   {
@@ -104,7 +105,8 @@ export default function DashboardPage() {
         </header>
         {/* <ProjectsSlice setOpenCreateProject={setOpenCreateProject} /> */}
         {/* <ProjectSettings /> */}
-        <ProfileSettingsSlice />
+        {/* <ProfileSettingsSlice /> */}
+        <PlansSlice />
         <CreateProjectSheet
           open={openCreateProject}
           setOpen={setOpenCreateProject}

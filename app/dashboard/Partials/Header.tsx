@@ -17,12 +17,15 @@ import {
   PopoverTitle,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import SearchComponent from "../components/SearchComponent";
 
 interface HeaderProps {
   setOpenCreateProject: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Header: React.FC<HeaderProps> = ({ setOpenCreateProject }) => {
+  const [openNotifications, setOpenNotifications] = React.useState(false);
+
   return (
     <header className="border-b divide-x divide-zinc-900 w-full grid grid-cols-[18%_82%] border-zinc-900">
       <div className="flex items-center ">
@@ -60,7 +63,10 @@ const Header: React.FC<HeaderProps> = ({ setOpenCreateProject }) => {
           <h2 className="text-base text-lg">Dashboard</h2>
         </div>
         <div className="flex items-center gap-3 justify-between">
-          <button className="flex transition-all items-center text-zinc-500 hover:text-white gap-3 px-4 py-3 border border-zinc-900 bg-zinc-950">
+          <button
+            onClick={() => setOpenNotifications(true)}
+            className="flex transition-all items-center text-zinc-500 hover:text-white gap-3 px-4 py-3 border border-zinc-900 bg-zinc-950"
+          >
             <Megaphone className="size-5" />
           </button>
           <button className="flex transition-all items-center text-white gap-3 px-4 py-2.5 border border-zinc-900 bg-zinc-950">
@@ -78,10 +84,8 @@ const Header: React.FC<HeaderProps> = ({ setOpenCreateProject }) => {
             Novo Projeto
           </button>
           <Popover>
-            <PopoverTrigger>
-              <button className="flex transition-all items-center text-zinc-500 hover:text-white gap-3 px-4 py-3 border border-zinc-900 bg-zinc-950">
-                <Settings className="size-5" />
-              </button>
+            <PopoverTrigger className="flex transition-all items-center text-zinc-500 hover:text-white gap-3 px-4 py-3 border border-zinc-900 bg-zinc-950">
+              <Settings className="size-5" />
             </PopoverTrigger>
             <PopoverPopup
               className={
@@ -114,6 +118,10 @@ const Header: React.FC<HeaderProps> = ({ setOpenCreateProject }) => {
           </Popover>
         </div>
       </div>
+      <SearchComponent
+        open={openNotifications}
+        setOpen={setOpenNotifications}
+      />
     </header>
   );
 };
