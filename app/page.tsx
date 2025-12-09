@@ -252,13 +252,19 @@ export default function Home() {
               viewport={{ once: false }}
               className="flex mt-10 flex-wrap items-center gap-4"
             >
-              <button className="px-7 py-4 ret:py-5 bg-white transition-all hover:bg-white/60 text-black text-xl">
+              <Link
+                href={"/register"}
+                className="px-7 py-4 ret:py-5 bg-white transition-all hover:bg-white/60 text-black text-xl"
+              >
                 Faça deploy agora
                 <MoveRight className="inline-block ml-4 size-5" />
-              </button>
-              <button className="px-7 py-4 ret:py-5 bg-transparent border border-zinc-900 transition-all hover:bg-white/10 text-white text-xl">
+              </Link>
+              <Link
+                href={"/docs"}
+                className="px-7 py-4 ret:py-5 bg-transparent border border-zinc-900 transition-all hover:bg-white/10 text-white text-xl"
+              >
                 Documentação
-              </button>
+              </Link>
             </motion.div>
           </div>
           <div className="flex ret:flex-nowrap flex-wrap items-end gap-2 justify-center pot:justify-end">
@@ -361,10 +367,13 @@ export default function Home() {
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
               viewport={{ once: false }}
             >
-              <button className="px-7 py-4 ret:py-5 bg-white transition-all hover:bg-white/60 text-black text-xl">
+              <Link
+                href={"/docs"}
+                className="px-7 py-4 ret:py-5 bg-white transition-all hover:bg-white/60 text-black text-xl"
+              >
                 Experimente Drenoday
                 <MoveRight className="inline-block ml-4 size-5" />
-              </button>
+              </Link>
             </motion.div>
           </div>
           <section className="mt-20 grid grid-cols-1 ">
@@ -433,9 +442,12 @@ export default function Home() {
                   transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
                   viewport={{ once: false }}
                 >
-                  <button className="px-7 mt-10 py-4 ret:py-5 bg-white transition-all hover:bg-white/60 text-black text-xl">
+                  <Link
+                    href={"/docs"}
+                    className="px-7 mt-10 py-4 ret:py-5 bg-white transition-all hover:bg-white/60 text-black text-xl"
+                  >
                     Visite a documentação
-                  </button>
+                  </Link>
                 </motion.div>
               </div>
               <div className="grid grid-cols-1 gap-3">
